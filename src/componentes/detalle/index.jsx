@@ -1,23 +1,25 @@
-import { useState,useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom"; 
 import './style.css'
 
 function Detalle() {
-    const { name } = useParams(); 
+    const {name} = useParams(); 
     const [datapoke, setDatapoke] = useState([]);
-
+    
 
     useEffect(() => {
-      fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
+      fetch(`https://pokeapi.co/api/v2/pokemon/pikachu`)
         .then(response => response.json())
         .then(responseData => setDatapoke(responseData))
         .catch(error => console.error("Error:", error));
-    }, [name]);
+    }, [name]); 
 
+
+  if (!datapoke) return <p>Cargando...</p>;
   return (
     <div>
     <img 
-      src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${datapoke.id}.png`} 
+      src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${datapoke.id}.png`}
       alt={datapoke.name} 
       width="200"
     />
