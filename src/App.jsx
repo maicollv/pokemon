@@ -23,7 +23,7 @@ function App() {
         <Route path="/aleatorio" element={<Aleatorio />} />
         <Route path="/original" element={<Original />} />
         <Route path="/favoritos" element={<Favoritos />} />
-        <Route path="/detalle/:nombre" element={<Detalle />} />
+        <Route path="/detalle" element={<Detalle />} />
       </Routes>
    
     </Router>
