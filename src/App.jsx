@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import './App.css'
+import { AppProvider } from './contexto/contexto';
+
 import Listar from './componentes/listar'
 import Aleatorio from './componentes/aleatorio'
 import Detalle from './componentes/detalle'
@@ -13,20 +14,21 @@ function App() {
   
 
   return (
+    <AppProvider>
     <Router>
-
       <Menu />
-     
+
       <Routes>
         <Route path="/" element={<Listar />} />
-        <Route path="/usuario" element={<Usuario />} />
-        <Route path="/aleatorio" element={<Aleatorio />} />
+        <Route path="/usuarios" element={<Usuario />} />
+        <Route path="/aleatorios" element={<Aleatorio />} />
         <Route path="/original" element={<Original />} />
         <Route path="/favoritos" element={<Favoritos />} />
-        <Route path="/detalle" element={<Detalle />} />
+        <Route path="/detalle/:name" element={<Detalle />} />
       </Routes>
-   
+
     </Router>
+    </AppProvider>
   )
 }
 
