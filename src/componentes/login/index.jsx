@@ -1,4 +1,4 @@
-funtion Login() {
+function Login() {
     
     return(
     <>
