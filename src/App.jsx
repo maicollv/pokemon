@@ -11,6 +11,8 @@ import Original from './componentes/original'
 import Usuario from './componentes/usuario'
 import Menu from './componentes/menu';
 import Login from './componentes/login';
+import Registro from './componentes/registro';
+import Administrador from './componentes/administrador';
 
 function App() {
 const [usuario, setUsuario] = useState(null);
@@ -38,31 +40,17 @@ return (
 {usuario && <Menu />}
 
 <Routes>
-<Route path="/" element={usuario ? <Listar /> : <Navigate to="/login"
-
-/>} />
-
-<Route path="/usuarios" element={usuario ? <Usuario /> : <Navigate
-
-to="/login" />} />
-
-<Route path="/aleatorios" element={usuario ? <Aleatorios /> :
-
-<Navigate to="/login" />} />
-
-<Route path="/capturados" element={usuario ? <Original /> :
-
-<Navigate to="/login" />} />
-
-<Route path="/favoritos" element={usuario ? <Favoritos /> :
-
-<Navigate to="/login" />} />
-
-<Route path="/detalle/:name" element={usuario ? <Detalle /> :
-
-<Navigate to="/login" />} />
+<Route path="/" element={usuario ? <Listar /> : <Navigate to="/login"/>} />
+<Route path="/usuario" element={usuario ? <Usuario /> : <Navigate to="/login" />} />
+<Route path="/aleatorio" element={usuario ? <Aleatorios /> :<Navigate to="/login" />} />
+<Route path="/original" element={usuario ? <Original /> :<Navigate to="/login" />} />
+<Route path="/favoritos" element={usuario ? <Favoritos /> :<Navigate to="/login" />} />
+<Route path="/detalle/:name" element={usuario ? <Detalle /> :<Navigate to="/login" />} />
 
 <Route path="/login" element={<Login/>} />
+<Route path="/registro" element={<Registro/>} />
+<Route path="/administrador" element={<Administrador/>} />
+
 </Routes>
 </Router>
 </AppProvider>
